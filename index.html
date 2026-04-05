@@ -5,6 +5,16 @@
         <input type="text" id="searchInput" placeholder="Search...">
     </div>
 
+    <nav class="sidebar-nav">
+        <p class="nav-label">Collections</p>
+        <ul id="memberList">
+            <li onclick="filterByMember('All', this)" class="active">ALL PCs</li>
+            <li onclick="filterByMember('JENO', this)">JENO</li>
+            <li onclick="filterByMember('JAEMIN', this)">JAEMIN</li>
+            <li onclick="filterByMember('UNIT', this)">UNIT</li>
+        </ul>
+    </nav>
+
     <div class="mobile-filter-wrapper">
         <div class="filter-item">
             <p class="nav-label">Member</p>
