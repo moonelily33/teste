@@ -38,33 +38,38 @@ function renderPC(data) {
 }
 
 function filterByMember(member, element) {
+    // 1. Urus visual List (Desktop)
     const items = document.querySelectorAll('.sidebar-nav li');
     items.forEach(item => item.classList.remove('active'));
-    if (element) element.classList.add('active');
     
+    if (element) {
+        // Jika diklik dari list desktop
+        element.classList.add('active');
+        // Update nilai dropdown mobile agar sinkron
+        document.getElementById('memberSelect').value = member;
+    } else {
+        // Jika dipilih dari dropdown mobile, cari list yang sesuai untuk dikasih class active
+        items.forEach(li => {
+            if(li.innerText.toUpperCase() === member.toUpperCase()) li.classList.add('active');
+            if(member === 'All' && li.innerText.includes('ALL')) li.classList.add('active');
+        });
+    }
+
+    // 2. Reset Filter Era (Opsional: agar tidak bentrok)
     document.getElementById('eraSelect').value = "All";
     
+    // 3. Eksekusi Filter Data
     const filtered = (member === 'All') ? pcData : pcData.filter(pc => pc.member === member);
     renderPC(filtered);
 }
 
 function filterByEra(era) {
+    // Saat filter era aktif, kita reset visual member ke 'ALL' agar tidak bingung
     const items = document.querySelectorAll('.sidebar-nav li');
     items.forEach(item => item.classList.remove('active'));
-    items[0].classList.add('active'); 
+    items[0].classList.add('active');
+    document.getElementById('memberSelect').value = "All";
 
     const filtered = (era === 'All') ? pcData : pcData.filter(pc => pc.era === era);
     renderPC(filtered);
 }
-
-searchInput.addEventListener('input', (e) => {
-    const term = e.target.value.toLowerCase();
-    const filtered = pcData.filter(pc => 
-        pc.member.toLowerCase().includes(term) || 
-        pc.title.toLowerCase().includes(term) ||
-        pc.era.toLowerCase().includes(term)
-    );
-    renderPC(filtered);
-});
-
-document.addEventListener('DOMContentLoaded', () => renderPC(pcData));
