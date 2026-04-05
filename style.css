@@ -68,7 +68,7 @@ body { font-family: 'Inter', sans-serif;
     flex-grow: 1; 
     display: grid; 
     grid-template-columns: repeat(8, 1fr); /* 8 PC Desktop */
-    gap: auto; 
+    gap: 10px; 
     padding: 30px; 
     align-content: start;
 }
