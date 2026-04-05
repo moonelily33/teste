@@ -26,6 +26,7 @@ body { font-family: 'Inter', sans-serif;
     letter-spacing: -1px; 
     text-align: center; 
     margin-bottom: 25px; }
+
 .main-header h1 span { 
     color: #CC2B23; 
     font-weight: 400; }
@@ -49,12 +50,14 @@ body { font-family: 'Inter', sans-serif;
 
 .sidebar-nav ul { 
     list-style: none; }
+
 .sidebar-nav li { 
     padding: 8px 0; 
     font-size: 14px; 
     cursor: pointer; 
     color: #555; 
     transition: 0.2s; }
+
 .sidebar-nav li:hover, 
 .sidebar-nav li.active { 
     color: #CC2B23; 
@@ -141,16 +144,16 @@ body { font-family: 'Inter', sans-serif;
     .grid-container { 
         grid-template-columns: repeat(6, 1fr); 
         padding: 20px; 
-        gap: auto; }
+        gap: 10px; }
 }
 
 /* --- RESPONSIVE: HP (4 KOLOM) --- */
 @media (max-width: 768px) {
     .grid-container { 
         grid-template-columns: repeat(4, 1fr); 
-        gap: 6px; padding: 10px; }
+        gap: 10px; padding: 10px; }
     .benefit-title { 
-        font-size: 9px; 
+        font-size: 10px; 
         min-height: 2.2em; }
     .member-tag, 
     .era-tag { 
