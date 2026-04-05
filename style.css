@@ -127,10 +127,11 @@ body {
     text-transform: uppercase; 
 }
 
-.benefit-title { 
-    font-size: 12px; 
-    font-weight: 600; 
-    margin: 2px 0;
+.benefit-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Maksimal 2 baris teks */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .era-tag { 
@@ -161,34 +162,43 @@ body {
     }
 }
 
-/* --- HP (4 Kolom) --- */
 @media (max-width: 768px) {
     .app-wrapper { 
-        flex-direction: column; 
+        flex-direction: column; /* Mengubah susunan dari samping ke atas-bawah */
     }
     
     .main-header { 
         width: 100%; 
-        height: auto; 
-        position: static; 
+        height: auto; /* Agar tinggi navbar mengikuti isi */
+        position: sticky; /* Membuat navbar menempel */
+        top: 0; 
+        left: 0;
         padding: 15px; 
+        z-index: 1000; /* Memastikan navbar di atas gambar PC */
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Tambahan shadow agar terlihat terpisah */
+        background: #EBEBEB; /* Tetap pakai abu-abu Narcissism */
+    }
+
+    /* Agar logo dan search tidak terlalu besar di HP */
+    .main-header h1 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+
+    .search-container {
+        margin-bottom: 10px;
+    }
+
+    /* Menghilangkan navigasi list di HP agar tidak menuhi layar */
+    /* Sebagai gantinya, kamu bisa pakai Era Select saja untuk filter */
+    .sidebar-nav { 
+        display: none; 
     }
 
     .grid-container {
         grid-template-columns: repeat(4, 1fr); /* 4 PC ke samping */
-        gap: 8px; /* Gap kecil agar gambar tetap terlihat besar */
+        gap: 8px; 
         padding: 10px;
-    }
-
-    /* Penyesuaian teks agar tidak berantakan di layar kecil */
-    .benefit-title {
-        font-size: 10px;
-        line-height: 1.2;
-        min-height: 2.4em; /* Menjaga agar grid tetap sejajar */
-        margin-top: 4px;
-    }
-
-    .member-tag, .era-tag {
-        font-size: 8px;
+        margin-top: 0; /* Pastikan tidak ada gap dengan navbar */
     }
 }
