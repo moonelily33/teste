@@ -110,11 +110,11 @@ body {
     object-fit: cover;
     border-radius: 8px;
     transition: transform 0.3s;
+    background-color: #CC2B23;
 }
 
 .pc-card:hover img {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .pc-info {
