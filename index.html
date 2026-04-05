@@ -1,37 +1,57 @@
-<aside class="main-header">
-    <h1>JNJM<span>ARCHIVE</span></h1>
-    
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search...">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JNJM ARCHIVE | NCT Photocard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-wrapper">
+        <aside class="main-header">
+            <h1>JNJM<span>ARCHIVE</span></h1>
+            
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search member or era...">
+            </div>
+
+            <nav class="sidebar-nav">
+                <p class="nav-label">Collections</p>
+                <ul>
+                    <li onclick="filterByMember('All', this)" class="active">ALL PCs</li>
+                    <li onclick="filterByMember('JENO', this)">JENO</li>
+                    <li onclick="filterByMember('JAEMIN', this)">JAEMIN</li>
+                    <li onclick="filterByMember('UNIT', this)">UNIT</li>
+                </ul>
+            </nav>
+
+            <div class="mobile-filter-wrapper">
+                <div class="filter-item">
+                    <p class="nav-label">Member</p>
+                    <select id="memberSelect" onchange="filterByMember(this.value, null)">
+                        <option value="All">All Members</option>
+                        <option value="JENO">JENO</option>
+                        <option value="JAEMIN">JAEMIN</option>
+                        <option value="UNIT">UNIT</option>
+                    </select>
+                </div>
+
+                <div class="filter-item">
+                    <p class="nav-label">Era</p>
+                    <select id="eraSelect" onchange="filterByEra(this.value)">
+                        <option value="All">All Eras</option>
+                        <option value="BOTH SIDES">BOTH SIDES</option>
+                    </select>
+                </div>
+            </div>
+        </aside>
+
+        <main class="grid-container" id="pc-container">
+            </main>
     </div>
 
-    <nav class="sidebar-nav">
-        <p class="nav-label">Collections</p>
-        <ul id="memberList">
-            <li onclick="filterByMember('All', this)" class="active">ALL PCs</li>
-            <li onclick="filterByMember('JENO', this)">JENO</li>
-            <li onclick="filterByMember('JAEMIN', this)">JAEMIN</li>
-            <li onclick="filterByMember('UNIT', this)">UNIT</li>
-        </ul>
-    </nav>
-
-    <div class="mobile-filter-wrapper">
-        <div class="filter-item">
-            <p class="nav-label">Member</p>
-            <select id="memberSelect" onchange="filterByMember(this.value, null)">
-                <option value="All">All Members</option>
-                <option value="JENO">JENO</option>
-                <option value="JAEMIN">JAEMIN</option>
-                <option value="UNIT">UNIT</option>
-            </select>
-        </div>
-
-        <div class="filter-item">
-            <p class="nav-label">Era</p>
-            <select id="eraSelect" onchange="filterByEra(this.value)">
-                <option value="All">All Eras</option>
-                <option value="BOTH SIDES">BOTH SIDES</option>
-            </select>
-        </div>
-    </div>
-</aside>
+    <script src="script.js"></script>
+</body>
+</html>
