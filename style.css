@@ -48,6 +48,9 @@ body { font-family: 'Inter', sans-serif;
     margin-bottom: 8px; 
     color: #333; }
 
+.sidebar-nav {
+    display: block; }
+   
 .sidebar-nav ul { 
     list-style: none; }
 
