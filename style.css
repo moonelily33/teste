@@ -1,0 +1,148 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fafafa;
+    color: #000;
+}
+
+.app-wrapper {
+    display: flex; 
+    min-height: 100vh;
+    align-items: flex-start;
+} 
+
+.main-header {
+    width: 260px; 
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: #EBEBEB; /* Abu-abu Poster Narcissism */
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0; 
+    z-index: 100;
+}
+
+.main-header h1 {
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -1px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.main-header h1 span {
+    color: #CC2B23; /* Merah Narcissism */
+    font-weight: 400;
+}
+
+.search-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #ffffff;
+    outline: none;
+    font-size: 14px;
+}
+
+.nav-label {
+    font-size: 12px;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.sidebar-nav ul { list-style: none; }
+
+.sidebar-nav li {
+    padding: 8px 0;
+    font-size: 14px;
+    cursor: pointer;
+    color: #555;
+    transition: 0.2s;
+}
+
+.sidebar-nav li:hover, .sidebar-nav li.active {
+    color: #CC2B23;
+    font-weight: 800;
+}
+
+#eraSelect {
+    width: 100%;
+    padding: 10px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+/* Grid Area */
+.grid-container {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 20px;
+    padding: 30px;
+}
+
+.pc-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.pc-card img {
+    width: 100%;
+    aspect-ratio: 55 / 85; 
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s;
+    background-color: #eee;
+}
+
+.pc-card:hover img {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.pc-info {
+    margin-top: 10px;
+}
+
+.member-tag { 
+    font-size: 10px; 
+    color: #888; 
+    text-transform: uppercase; 
+}
+
+.benefit-title { 
+    font-size: 12px; 
+    font-weight: 600; 
+    margin: 2px 0;
+}
+
+.era-tag { 
+    font-size: 10px; 
+    color: #CC2B23; 
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .app-wrapper { flex-direction: column; }
+    .main-header { width: 100%; height: auto; position: static; padding: 15px; }
+    .sidebar-nav { display: none; } /* Mobile hide sidebar list */
+    .grid-container { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); padding: 15px; }
+}
