@@ -139,9 +139,23 @@ body {
     text-transform: uppercase; 
 }
 
+/* Untuk Layar Besar (Desktop) */
+@media (min-width: 1200px) {
+    .grid-container {
+        grid-template-columns: repeat(8, 1fr);
+    }
+}
+
+/* Untuk Layar Sedang (Tablet) */
+@media (max-width: 1199px) and (min-width: 769px) {
+    .grid-container {
+        grid-template-columns: repeat(4, 1fr); /* 4 PC ke samping */
+    }
+}
+
+/* Untuk Layar Kecil (HP) */
 @media (max-width: 768px) {
-    .app-wrapper { flex-direction: column; }
-    .main-header { width: 100%; height: auto; position: static; padding: 15px; }
-    .sidebar-nav { display: none; } /* Mobile hide sidebar list */
-    .grid-container { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); padding: 15px; }
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 PC ke samping */
+    }
 }
