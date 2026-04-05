@@ -35,7 +35,6 @@ body { font-family: 'Inter', sans-serif; background-color: #fafafa; color: #000;
     transition: 0.3s; background-color: #ddd; display: block;
 }
 .pc-card:hover img { transform: translateY(-5px); }
-.pc-info { margin-top: 3px; }
 .member-tag { font-size: 9px; color: #888; text-transform: uppercase; }
 .benefit-title { 
     font-size: 11px; font-weight: 600;
