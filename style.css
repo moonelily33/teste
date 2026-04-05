@@ -118,7 +118,7 @@ body {
 }
 
 .pc-info {
-    margin-top: 10px;
+    margin-top: 3px;
 }
 
 .member-tag { 
@@ -150,6 +150,46 @@ body {
     
     .main-header {
         width: 220px; /* Perkecil sidebar sedikit agar ruang grid lebih luas */
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: auto;
+        z-index: 1000;
+        background: #EBEBEB;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* Membuat dua dropdown berjejer ke samping */
+    .mobile-filter-wrapper {
+        display: flex;
+        gap: 10px; /* Jarak antar dropdown */
+        width: 100%;
+    }
+
+    .filter-item {
+        flex: 1; /* Agar kedua dropdown punya lebar yang sama (50:50) */
+    }
+
+    .nav-label {
+        font-size: 10px; /* Perkecil label agar hemat tempat */
+        margin-bottom: 4px;
+    }
+
+    #memberSelect, #eraSelect {
+        width: 100%;
+        padding: 8px;
+        font-size: 12px;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+        background-color: #fff;
+    }
+
+    /* Sembunyikan list navigasi lama (ul li) di tablet/hp */
+    .sidebar-nav {
+        display: none;
     }
 }
 
