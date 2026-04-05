@@ -1,62 +1,138 @@
 /* --- RESET & BASE --- */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Inter', sans-serif; background-color: #fafafa; color: #000; overflow-x: hidden; }
+* { box-sizing: border-box; 
+   margin: 0; padding: 0; }
+body { font-family: 'Inter', sans-serif; 
+      background-color: #fafafa; 
+      color: #000; 
+      overflow-x: hidden; }
 
 .app-wrapper { display: flex; min-height: 100vh; }
 
 /* --- SIDEBAR DESKTOP --- */
 .main-header {
-    width: 260px; height: 100vh; position: sticky; top: 0;
-    background: #EBEBEB; padding: 25px; display: flex; flex-direction: column; z-index: 1000;
+    width: 260px; 
+    height: 100vh; 
+    position: sticky; 
+    top: 0;
+    background: #EBEBEB; 
+    padding: 25px; 
+    display: flex; 
+    flex-direction: column; 
+    z-index: 1000;
 }
-.main-header h1 { font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; text-align: center; margin-bottom: 25px; }
-.main-header h1 span { color: #CC2B23; font-weight: 400; }
+.main-header h1 { 
+    font-weight: 800; 
+    font-size: 1.5rem; 
+    letter-spacing: -1px; 
+    text-align: center; 
+    margin-bottom: 25px; }
+.main-header h1 span { 
+    color: #CC2B23; 
+    font-weight: 400; }
 
 .search-container input {
-    width: 100%; padding: 10px 15px; border: 1px solid #ddd; border-radius: 8px; outline: none; font-size: 14px; margin-bottom: 25px;
+    width: 100%; 
+    padding: 10px 15px; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    outline: none; 
+    font-size: 14px; 
+    margin-bottom: 25px;
 }
 
-.nav-label { font-size: 11px; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; color: #333; }
+.nav-label { 
+    font-size: 11px; 
+    font-weight: 800; 
+    text-transform: uppercase; 
+    margin-bottom: 8px; 
+    color: #333; }
 
-.sidebar-nav ul { list-style: none; }
-.sidebar-nav li { padding: 8px 0; font-size: 14px; cursor: pointer; color: #555; transition: 0.2s; }
-.sidebar-nav li:hover, .sidebar-nav li.active { color: #CC2B23; font-weight: 800; }
+.sidebar-nav ul { 
+    list-style: none; }
+.sidebar-nav li { 
+    padding: 8px 0; 
+    font-size: 14px; 
+    cursor: pointer; 
+    color: #555; 
+    transition: 0.2s; }
+.sidebar-nav li:hover, 
+.sidebar-nav li.active { 
+    color: #CC2B23; 
+    font-weight: 800; }
 
-.mobile-filter-wrapper { display: none; } /* Hidden on Desktop */
+.mobile-filter-wrapper { 
+    display: none; } /* Hidden on Desktop */
 
 /* --- GRID SYSTEM --- */
 .grid-container {
-    flex-grow: 1; display: grid; 
+    flex-grow: 1; 
+    display: grid; 
     grid-template-columns: repeat(8, 1fr); /* 8 PC Desktop */
-    gap: 12px; padding: 30px; align-content: start;
+    gap: auto; 
+    padding: 30px; 
+    align-content: start;
 }
 .pc-card img {
-    width: 100%; aspect-ratio: 55 / 85; object-fit: cover; border-radius: 8px; 
-    transition: 0.3s; background-color: #ddd; display: block;
+    width: 100%; 
+    aspect-ratio: 55 / 85; 
+    object-fit: cover; 
+    border-radius: 8px; 
+    transition: 0.3s; 
+    background-color: #ddd; 
+    display: block;
 }
-.pc-card:hover img { transform: translateY(-5px); }
-.member-tag { font-size: 9px; color: #888; text-transform: uppercase; }
+.pc-card:hover img { 
+    transform: translateY(-5px); }
+.member-tag { 
+    font-size: 9px; 
+    color: #888; 
+    text-transform: uppercase; }
 .benefit-title { 
-    font-size: 11px; font-weight: 600;
-    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    font-size: 11px; 
+    font-weight: 600;
+    display: 
+    -webkit-box; 
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; 
+    overflow: hidden;
 }
-.era-tag { font-size: 9px; color: #888; }
+.era-tag { 
+    font-size: 9px; 
+    color: #888; }
 
 /* --- RESPONSIVE: TABLET (6 KOLOM) --- */
 @media (max-width: 1199px) {
-    .app-wrapper { flex-direction: column; }
+    .app-wrapper { 
+        flex-direction: column; }
     .main-header {
-        width: 100%; height: auto; position: sticky; top: 0; padding: 15px;
-        background: #EBEBEB; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    .sidebar-nav { display: none; }
-    .mobile-filter-wrapper { display: flex; gap: 10px; margin-top: 15px; width: 100%; }
-    .filter-item { flex: 1; }
+        width: 100%; 
+        height: auto; 
+        position: sticky; 
+        top: 0; 
+        padding: 15px;
+        background: #EBEBEB;
+    .sidebar-nav { 
+        display: none; }
+    .mobile-filter-wrapper {
+        display: flex; 
+        gap: 10px;
+        margin-top: 15px; 
+        width: 100%; }
+    .filter-item { 
+        flex: 1; }
     select { 
-        width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 6px; 
-        background: #fff; font-size: 13px; outline: none;
+        width: 100%; 
+        padding: 8px; 
+        border: 1px solid #ddd; 
+        border-radius: 6px; 
+        background: #fff; 
+        font-size: 13px; 
+        outline: none;
     }
-    .grid-container { grid-template-columns: repeat(6, 1fr); padding: 20px; gap: 10px; }
+    .grid-container { 
+        grid-template-columns: repeat(6, 1fr); 
+        padding: 20px; 
+        gap: auto; }
 }
 
 /* --- RESPONSIVE: HP (4 KOLOM) --- */
