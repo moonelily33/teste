@@ -139,23 +139,56 @@ body {
     text-transform: uppercase; 
 }
 
-/* Untuk Layar Besar (Desktop) */
+/* --- Desktop (8 Kolom) --- */
 @media (min-width: 1200px) {
     .grid-container {
         grid-template-columns: repeat(8, 1fr);
+        gap: 12px;
+        padding: 30px;
     }
 }
 
-/* Untuk Layar Sedang (Tablet) */
+/* --- Tablet (6 Kolom) --- */
 @media (max-width: 1199px) and (min-width: 769px) {
     .grid-container {
-        grid-template-columns: repeat(4, 1fr); /* 4 PC ke samping */
+        grid-template-columns: repeat(6, 1fr);
+        gap: 10px;
+        padding: 20px;
+    }
+    
+    .main-header {
+        width: 220px; /* Sedikit mengecilkan sidebar di tablet */
     }
 }
 
-/* Untuk Layar Kecil (HP) */
+/* --- HP (4 Kolom) --- */
 @media (max-width: 768px) {
+    .app-wrapper { 
+        flex-direction: column; 
+    }
+    
+    .main-header { 
+        width: 100%; 
+        height: auto; 
+        position: static; 
+        padding: 15px; 
+    }
+
     .grid-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 PC ke samping */
+        grid-template-columns: repeat(4, 1fr); /* 4 PC ke samping */
+        gap: 8px; /* Gap kecil agar gambar tetap terlihat besar */
+        padding: 10px;
+    }
+
+    /* Penyesuaian teks agar tidak berantakan di layar kecil */
+    .benefit-title {
+        font-size: 10px;
+        line-height: 1.2;
+        min-height: 2.4em; /* Menjaga agar grid tetap sejajar */
+        margin-top: 4px;
+    }
+
+    .member-tag, .era-tag {
+        font-size: 8px;
     }
 }
