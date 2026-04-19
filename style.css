@@ -26,7 +26,6 @@ input {
   font-size: 24px;
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: 0.04em;
 }
 
 .logo span {
@@ -461,7 +460,6 @@ input:focus-visible {
   font-size: 17.5px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
   color: #000;
 }
 
