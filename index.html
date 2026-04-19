@@ -1,57 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JNJM ARCHIVE | NCT Photocard</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JNJM.ARCHIVE</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- DESKTOP SIDEBAR -->
+  <aside class="sidebar desktop-only">
+    <h1 class="logo">JNJM<span>.archive</span></h1>
+    <div class="summary-box" id="pcSummary"></div>
 
-    <div class="app-wrapper">
-        <aside class="main-header">
-            <h1>JNJM<span>ARCHIVE</span></h1>
-            
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Search member or era...">
-            </div>
-
-            <nav class="sidebar-nav">
-                <p class="nav-label">Collections</p>
-                <ul>
-                    <li onclick="filterByMember('All', this)" class="active">ALL PCs</li>
-                    <li onclick="filterByMember('JENO', this)">JENO</li>
-                    <li onclick="filterByMember('JAEMIN', this)">JAEMIN</li>
-                    <li onclick="filterByMember('UNIT', this)">UNIT</li>
-                </ul>
-            </nav>
-
-            <div class="mobile-filter-wrapper">
-                <div class="filter-item">
-                    <p class="nav-label">Member</p>
-                    <select id="memberSelect" onchange="filterByMember(this.value, null)">
-                        <option value="All">All Members</option>
-                        <option value="JENO">JENO</option>
-                        <option value="JAEMIN">JAEMIN</option>
-                        <option value="UNIT">UNIT</option>
-                    </select>
-                </div>
-
-                <div class="filter-item">
-                    <p class="nav-label">Era</p>
-                    <select id="eraSelect" onchange="filterByEra(this.value)">
-                        <option value="All">All Eras</option>
-                        <option value="BOTH SIDES">BOTH SIDES</option>
-                        </select>
-                </div>
-            </div>
-        </aside>
-
-        <main class="grid-container" id="pc-container">
-            </main>
+    <div class="search-box">
+      <input type="text" id="searchDesktop" placeholder="Search photocard..." />
     </div>
 
-    <script src="script.js"></script>
+    <div class="dropdown-group">
+      <button class="dropdown-btn" type="button" data-label-type="member">
+        Members <span class="arrow">▼</span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><button class="filter-btn" type="button" data-filter-type="member" data-filter-value="all">NCT JNJM</button></li>
+        <li><button class="filter-btn" type="button" data-filter-type="member" data-filter-value="jeno">Jeno</button></li>
+        <li><button class="filter-btn" type="button" data-filter-type="member" data-filter-value="jaemin">Jaemin</button></li>
+        <li><button class="filter-btn" type="button" data-filter-type="member" data-filter-value="unit">Unit</button></li>
+      </ul>
+    </div>
+
+    <div class="dropdown-group">
+      <button class="dropdown-btn" type="button" data-label-type="benefit">
+        Benefits <span class="arrow">▼</span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><button class="filter-btn" type="button" data-filter-type="benefit" data-filter-value="all">All Benefits</button></li>
+        <li><button class="filter-btn" type="button" data-filter-type="benefit" data-filter-value="album">Album</button></li>
+        <li><button class="filter-btn" type="button" data-filter-type="benefit" data-filter-value="pob">Pre-Order Benefit</button></li>
+        <li><button class="filter-btn" type="button" data-filter-type="benefit" data-filter-value="ld">Lucky Draw</button></li>
+        <li><button class="filter-btn" type="button" data-filter-type="benefit" data-filter-value="fanmeeting">Fan Meeting</button></li>
+        <li><button class="filter-btn" type="button" data-filter-type="benefit" data-filter-value="merch">Merchandise</button></li>
+        <li><button class="filter-btn" type="button" data-filter-type="benefit" data-filter-value="etc">Etc</button></li>
+      </ul>
+    </div>
+
+    <div class="dropdown-group">
+      <button class="dropdown-btn" type="button" data-label-type="era">
+        Eras <span class="arrow">▼</span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><button class="filter-btn" type="button" data-filter-type="era" data-filter-value="all">All Eras</button></li>
+        <li><button class="filter-btn" type="button" data-filter-type="era" data-filter-value="gbttf">Go Back To The Future</button></li>
+        <li><button class="filter-btn" type="button" data-filter-type="era" data-filter-value="biu">Beat It Up</button></li>
+        <li><button class="filter-btn" type="button" data-filter-type="era" data-filter-value="bothsides">Both Sides</button></li>
+      </ul>
+    </div>
+
+    <button id="resetFiltersDesktop" type="button">Reset</button>
+  </aside>
+
+  <!-- MOBILE / TABLET TOPBAR -->
+  <header class="topbar mobile-only">
+    <div class="topbar-inner">
+      <h1 class="logo">JNJM<span>.archive</span></h1>
+
+      <div class="topbar-search">
+        <input type="text" id="searchMobile" placeholder="Search photocard..." />
+      </div>
+
+      <div class="filter-bar">
+        <button class="filter-open-btn" type="button" data-panel="membersPanel" data-label-type="member">Members</button>
+        <button class="filter-open-btn" type="button" data-panel="benefitPanel" data-label-type="benefit">Benefits</button>
+        <button class="filter-open-btn" type="button" data-panel="eraPanel" data-label-type="era">Eras</button>
+        <button class="filter-open-btn icon-btn" type="button" data-panel="allFiltersPanel">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- OVERLAY -->
+  <div class="filter-overlay" id="filterOverlay"></div>
+
+  <!-- MOBILE / TABLET MEMBERS PANEL -->
+  <div class="filter-panel" id="membersPanel">
+    <div class="filter-panel-header">
+      <h3>Members</h3>
+      <button class="close-panel" type="button">✕</button>
+    </div>
+
+    <div class="filter-panel-body">
+      <button class="filter-option" type="button" data-filter-type="member" data-filter-value="all">NCT JNJM</button>
+      <button class="filter-option" type="button" data-filter-type="member" data-filter-value="jeno">Jeno</button>
+      <button class="filter-option" type="button" data-filter-type="member" data-filter-value="jaemin">Jaemin</button>
+      <button class="filter-option" type="button" data-filter-type="member" data-filter-value="unit">Unit</button>
+    </div>
+
+    <div class="filter-panel-footer">
+      <button class="reset-btn" type="button">Reset</button>
+      <button class="apply-btn" type="button">Apply</button>
+    </div>
+  </div>
+
+  <!-- MOBILE / TABLET BENEFIT PANEL -->
+  <div class="filter-panel" id="benefitPanel">
+    <div class="filter-panel-header">
+      <h3>Benefits</h3>
+      <button class="close-panel" type="button">✕</button>
+    </div>
+
+    <div class="filter-panel-body">
+      <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="all">All Benefits</button>
+      <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="album">Album</button>
+      <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="pob">Pre-Order Benefit</button>
+      <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="ld">Lucky Draw</button>
+      <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="fanmeeting">Fan Meeting</button>
+      <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="merch">Merchandise</button>
+      <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="etc">Etc</button>
+    </div>
+
+    <div class="filter-panel-footer">
+      <button class="reset-btn" type="button">Reset</button>
+      <button class="apply-btn" type="button">Apply</button>
+    </div>
+  </div>
+
+  <!-- MOBILE / TABLET ERA PANEL -->
+  <div class="filter-panel" id="eraPanel">
+    <div class="filter-panel-header">
+      <h3>Eras</h3>
+      <button class="close-panel" type="button">✕</button>
+    </div>
+
+    <div class="filter-panel-body">
+      <button class="filter-option" type="button" data-filter-type="era" data-filter-value="all">All Eras</button>
+      <button class="filter-option" type="button" data-filter-type="era" data-filter-value="gbttf">Go Back To The Future</button>
+      <button class="filter-option" type="button" data-filter-type="era" data-filter-value="biu">Beat It Up</button>
+      <button class="filter-option" type="button" data-filter-type="era" data-filter-value="bothsides">Both Sides</button>
+    </div>
+
+    <div class="filter-panel-footer">
+      <button class="reset-btn" type="button">Reset</button>
+      <button class="apply-btn" type="button">Apply</button>
+    </div>
+  </div>
+
+  <!-- MOBILE / TABLET ALL FILTERS PANEL -->
+  <div class="filter-panel" id="allFiltersPanel">
+    <div class="filter-panel-header">
+      <h3>All Filters</h3>
+      <button class="close-panel" type="button">✕</button>
+    </div>
+
+    <div class="filter-panel-body grouped">
+      <div class="filter-section">
+        <h4>Members</h4>
+        <button class="filter-option" type="button" data-filter-type="member" data-filter-value="all">NCT JNJM</button>
+        <button class="filter-option" type="button" data-filter-type="member" data-filter-value="jeno">Jeno</button>
+        <button class="filter-option" type="button" data-filter-type="member" data-filter-value="jaemin">Jaemin</button>
+        <button class="filter-option" type="button" data-filter-type="member" data-filter-value="unit">Unit</button>
+      </div>
+
+      <div class="filter-section">
+        <h4>Benefits</h4>
+        <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="all">All Benefits</button>
+        <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="album">Album</button>
+        <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="pob">Pre-Order Benefit</button>
+        <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="ld">Lucky Draw</button>
+        <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="fanmeeting">Fan Meeting</button>
+        <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="merch">Merchandise</button>
+        <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="etc">Etc</button>
+      </div>
+
+      <div class="filter-section">
+        <h4>Eras</h4>
+        <button class="filter-option" type="button" data-filter-type="era" data-filter-value="all">All Eras</button>
+        <button class="filter-option" type="button" data-filter-type="era" data-filter-value="gbttf">Go Back To The Future</button>
+        <button class="filter-option" type="button" data-filter-type="era" data-filter-value="biu">Beat It Up</button>
+        <button class="filter-option" type="button" data-filter-type="era" data-filter-value="bothsides">Both Sides</button>
+      </div>
+    </div>
+
+    <div class="filter-panel-footer">
+      <button class="reset-btn" type="button">Reset</button>
+      <button class="apply-btn" type="button">Apply</button>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+    <div class="pc-grid-sections" id="pcGridSections"></div>
+
+    <footer class="footer">
+      <p class="footer-main">JNJM.archive</p>
+      <p class="footer-note">Curated by @jjatmosphere on x</p>
+      <p class="footer-note">Unofficial photocard archive • all rights to respective owners</p>
+    </footer>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
