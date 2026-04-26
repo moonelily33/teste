@@ -3,207 +3,417 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JNJM.ARCHIVE</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-
+  <title>NCT JNJM Archive</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <!-- DESKTOP SIDEBAR -->
-  <aside class="sidebar desktop-only">
-    <h1 class="logo">JNJM<span>.archive</span></h1>
-    <div class="summary-box" id="pcSummary"></div>
+  <div class="app-shell">
 
-    <div class="search-box">
-      <input type="text" id="searchDesktop" placeholder="Search photocard..." />
-    </div>
+    <!-- DESKTOP SIDEBAR -->
+    <aside class="desktop-sidebar" aria-label="Desktop filters">
+      <a class="brand brand--sidebar" href="#top">
+        NCT JNJM.<span>archive</span>
+      </a>
 
-    <div class="dropdown-group">
-      <button class="dropdown-btn" type="button" data-label-type="member">
-        Members <span class="arrow">▼</span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><button class="filter-btn" type="button" data-filter-type="member" data-filter-value="all">NCT JNJM</button></li>
-        <li><button class="filter-btn" type="button" data-filter-type="member" data-filter-value="jeno">Jeno</button></li>
-        <li><button class="filter-btn" type="button" data-filter-type="member" data-filter-value="jaemin">Jaemin</button></li>
-        <li><button class="filter-btn" type="button" data-filter-type="member" data-filter-value="unit">Unit</button></li>
-      </ul>
-    </div>
+      <div class="sidebar-divider"></div>
 
-    <div class="dropdown-group">
-      <button class="dropdown-btn" type="button" data-label-type="benefit">
-        Benefits <span class="arrow">▼</span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><button class="filter-btn" type="button" data-filter-type="benefit" data-filter-value="all">All Benefits</button></li>
-        <li><button class="filter-btn" type="button" data-filter-type="benefit" data-filter-value="album">Album</button></li>
-        <li><button class="filter-btn" type="button" data-filter-type="benefit" data-filter-value="pob">Pre-Order Benefit</button></li>
-        <li><button class="filter-btn" type="button" data-filter-type="benefit" data-filter-value="ld">Lucky Draw</button></li>
-        <li><button class="filter-btn" type="button" data-filter-type="benefit" data-filter-value="fanmeeting">Fan Meeting</button></li>
-        <li><button class="filter-btn" type="button" data-filter-type="benefit" data-filter-value="merch">Merchandise</button></li>
-        <li><button class="filter-btn" type="button" data-filter-type="benefit" data-filter-value="etc">Etc</button></li>
-      </ul>
-    </div>
-
-    <div class="dropdown-group">
-      <button class="dropdown-btn" type="button" data-label-type="era">
-        Eras <span class="arrow">▼</span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><button class="filter-btn" type="button" data-filter-type="era" data-filter-value="all">All Eras</button></li>
-        <li><button class="filter-btn" type="button" data-filter-type="era" data-filter-value="gbttf">Go Back To The Future</button></li>
-        <li><button class="filter-btn" type="button" data-filter-type="era" data-filter-value="biu">Beat It Up</button></li>
-        <li><button class="filter-btn" type="button" data-filter-type="era" data-filter-value="bothsides">Both Sides</button></li>
-      </ul>
-    </div>
-
-    <button id="resetFiltersDesktop" type="button">Reset</button>
-  </aside>
-
-  <!-- MOBILE / TABLET TOPBAR -->
-  <header class="topbar mobile-only">
-    <div class="topbar-inner">
-      <h1 class="logo">JNJM<span>.archive</span></h1>
-
-      <div class="topbar-search">
-        <input type="text" id="searchMobile" placeholder="Search photocard..." />
+      <div class="desktop-filter-group">
+        <h3>Member</h3>
+        <button class="desktop-filter-btn active" data-member="all" type="button">All Members</button>
+        <button class="desktop-filter-btn" data-member="jeno" type="button">Jeno</button>
+        <button class="desktop-filter-btn" data-member="jaemin" type="button">Jaemin</button>
+        <button class="desktop-filter-btn" data-member="unit" type="button">Unit</button>
       </div>
 
-      <div class="filter-bar">
-        <button class="filter-open-btn" type="button" data-panel="membersPanel" data-label-type="member">Members</button>
-        <button class="filter-open-btn" type="button" data-panel="benefitPanel" data-label-type="benefit">Benefits</button>
-        <button class="filter-open-btn" type="button" data-panel="eraPanel" data-label-type="era">Eras</button>
-        <button class="filter-open-btn icon-btn" type="button" data-panel="allFiltersPanel">☰</button>
+      <div class="desktop-filter-group">
+        <h3>Type</h3>
+        <button class="desktop-filter-btn active" data-type="all" type="button">All Types</button>
+        <button class="desktop-filter-btn" data-type="album" type="button">Album</button>
+        <button class="desktop-filter-btn" data-type="pre-order-benefit" type="button">Pre-Order Benefit</button>
+        <button class="desktop-filter-btn" data-type="lucky-draw" type="button">Lucky Draw</button>
+        <button class="desktop-filter-btn" data-type="fan-sign" type="button">Fan Sign</button>
+        <button class="desktop-filter-btn" data-type="fan-meeting" type="button">Fan Meeting</button>
+        <button class="desktop-filter-btn" data-type="merchandise" type="button">Merchandise</button>
+        <button class="desktop-filter-btn" data-type="etc" type="button">Etc</button>
       </div>
-    </div>
-  </header>
 
-  <!-- OVERLAY -->
-  <div class="filter-overlay" id="filterOverlay"></div>
+      <div class="desktop-filter-group">
+        <h3>Era</h3>
+        <select id="desktopEraFilter">
+          <option value="all">All Eras</option>
+          <option value="the-first">The First</option>
+          <option value="we-young">We Young</option>
+          <option value="empathy">Empathy</option>
+          <option value="we-go-up">We Go Up</option>
+          <option value="we-boom">We Boom</option>
+          <option value="the-dream">The Dream</option>
+          <option value="reload">Reload</option>
+          <option value="resonance-pt-1">Resonance Pt. 1</option>
+          <option value="resonance-pt-2">Resonance Pt. 2</option>
+          <option value="hot-sauce">Hot Sauce</option>
+          <option value="hello-future">Hello Future</option>
+          <option value="universe">Universe</option>
+          <option value="smcu-express">SMCU Express</option>
+          <option value="glitch-mode">Glitch Mode</option>
+          <option value="beat-box">Beatbox</option>
+          <option value="candy">Candy</option>
+          <option value="smcu-palace">SMCU Palace</option>
+          <option value="best-friend-ever">Best Friend Ever</option>
+          <option value="istj">ISTJ</option>
+          <option value="golden-age">Golden Age</option>
+          <option value="dreamscape">Dreamscape</option>
+          <option value="moonlight">Moonlight</option>
+          <option value="the-culture-the-future">The Culture The Future</option>
+          <option value="go-back-to-the-future">Go Back To The Future</option>
+          <option value="beat-it-up">Beat It Up</option>
+          <option value="both-sides">Both Sides</option>
+        </select>
+      </div>
 
-  <!-- MOBILE / TABLET MEMBERS PANEL -->
-  <div class="filter-panel" id="membersPanel">
-    <div class="filter-panel-header">
-      <h3>Members</h3>
-      <button class="close-panel" type="button">✕</button>
-    </div>
+      <button class="btn btn--accent" id="desktopResetBtn" type="button">Reset 🔄</button>
 
-    <div class="filter-panel-body">
-      <button class="filter-option" type="button" data-filter-type="member" data-filter-value="all">NCT JNJM</button>
-      <button class="filter-option" type="button" data-filter-type="member" data-filter-value="jeno">Jeno</button>
-      <button class="filter-option" type="button" data-filter-type="member" data-filter-value="jaemin">Jaemin</button>
-      <button class="filter-option" type="button" data-filter-type="member" data-filter-value="unit">Unit</button>
-    </div>
+      <div class="sidebar-divider"></div>
 
-    <div class="filter-panel-footer">
-      <button class="reset-btn" type="button">Reset</button>
-      <button class="apply-btn" type="button">Apply</button>
-    </div>
+      <button class="btn btn--ghost" id="desktopSettingsBtn" type="button">More ⚙️</button>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main" id="top">
+
+      <!-- HEADER -->
+      <header class="hero">
+        <a class="brand" href="#top" aria-label="NCT JNJM Archive home">
+          NCT JNJM.<span>archive</span>
+        </a>
+
+        <div class="hero-actions">
+          <label class="search-field" for="searchInput">
+            <span class="sr-only">Search photocard</span>
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="🔍 Search photocard..."
+              autocomplete="off"
+            />
+          </label>
+
+          <div class="hero-summary" aria-label="Desktop summary">
+            <span>Total: <strong id="desktopSumTotal">0</strong></span>
+            <span>Jeno: <strong id="desktopSumJeno">0</strong></span>
+            <span>Jaemin: <strong id="desktopSumJaemin">0</strong></span>
+            <span>Unit: <strong id="desktopSumUnit">0</strong></span>
+            <span>Last Update: <strong id="desktopLastUpdate">26 Apr 2026</strong></span>
+          </div>
+
+        </div>
+      </header>
+
+      <!-- MOBILE SUMMARY + FILTER -->
+      <section class="top-scroll" aria-label="Summary and filters">
+
+        <div class="scroll-row">
+          <div class="scroll-item">Total: <strong id="sumTotal">0</strong></div>
+          <div class="scroll-item">Jeno: <strong id="sumJeno">0</strong></div>
+          <div class="scroll-item">Jaemin: <strong id="sumJaemin">0</strong></div>
+          <div class="scroll-item">Unit: <strong id="sumUnit">0</strong></div>
+          <div class="scroll-item">Last Update: <strong id="lastUpdate">26 Apr 2026</strong></div>
+        </div>
+
+        <div class="scroll-row">
+          <select class="scroll-select" id="memberFilter">
+            <option value="all">All Members</option>
+            <option value="jeno">Jeno</option>
+            <option value="jaemin">Jaemin</option>
+            <option value="unit">Unit</option>
+          </select>
+
+          <select class="scroll-select" id="typeFilter">
+            <option value="all">All Types</option>
+            <option value="album">Album</option>
+            <option value="pre-order-benefit">Pre-Order Benefit</option>
+            <option value="lucky-draw">Lucky Draw</option>
+            <option value="fan-sign">Fan Sign</option>
+            <option value="fan-meeting">Fan Meeting</option>
+            <option value="merchandise">Merchandise</option>
+            <option value="etc">Etc</option>
+          </select>
+
+          <select class="scroll-select" id="eraFilter">
+            <option value="all">All Eras</option>
+            <option value="the-first">The First</option>
+            <option value="we-young">We Young</option>
+            <option value="empathy">Empathy</option>
+            <option value="we-go-up">We Go Up</option>
+            <option value="we-boom">We Boom</option>
+            <option value="the-dream">The Dream</option>
+            <option value="reload">Reload</option>
+            <option value="resonance-pt-1">Resonance Pt. 1</option>
+            <option value="resonance-pt-2">Resonance Pt. 2</option>
+            <option value="hot-sauce">Hot Sauce</option>
+            <option value="hello-future">Hello Future</option>
+            <option value="universe">Universe</option>
+            <option value="smcu-express">SMCU Express</option>
+            <option value="glitch-mode">Glitch Mode</option>
+            <option value="beat-box">Beatbox</option>
+            <option value="candy">Candy</option>
+            <option value="smcu-palace">SMCU Palace</option>
+            <option value="best-friend-ever">Best Friend Ever</option>
+            <option value="istj">ISTJ</option>
+            <option value="golden-age">Golden Age</option>
+            <option value="dreamscape">Dreamscape</option>
+            <option value="moonlight">Moonlight</option>
+            <option value="the-culture-the-future">The Culture The Future</option>
+            <option value="go-back-to-the-future">Go Back To The Future</option>
+            <option value="beat-it-up">Beat It Up</option>
+            <option value="both-sides">Both Sides</option>
+          </select>
+
+          <button class="scroll-btn accent" id="resetBtn" type="button">Reset 🔄</button>
+          <button class="scroll-btn" id="openFiltersBtn" type="button">All Filters 🔽</button>
+        </div>
+
+      </section>
+
+      <!-- FILTER MODAL -->
+      <div class="modal" id="filtersModal" hidden>
+        <button
+          class="modal-backdrop"
+          id="filtersBackdrop"
+          type="button"
+          aria-label="Close filters"
+        ></button>
+
+        <section class="modal-panel filter-modal-panel" role="dialog" aria-modal="true" aria-labelledby="filtersTitle">
+          <div class="modal-head">
+            <h2 id="filtersTitle">All Filters</h2>
+            <button class="close-btn" id="closeFiltersBtn" type="button" aria-label="Close filters">
+              ×
+            </button>
+          </div>
+
+          <div class="filter-modal-body">
+            <div class="field-group">
+              <label for="modalMemberFilter">Member</label>
+              <select id="modalMemberFilter">
+                <option value="all">All Members</option>
+                <option value="jeno">Jeno</option>
+                <option value="jaemin">Jaemin</option>
+                <option value="unit">Unit</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label for="modalTypeFilter">Type</label>
+              <select id="modalTypeFilter">
+                <option value="all">All Types</option>
+                <option value="album">Album</option>
+                <option value="pre-order-benefit">Pre-Order Benefit</option>
+                <option value="lucky-draw">Lucky Draw</option>
+                <option value="fan-sign">Fan Sign</option>
+                <option value="fan-meeting">Fan Meeting</option>
+                <option value="merchandise">Merchandise</option>
+                <option value="etc">Etc</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label for="modalEraFilter">Era</label>
+              <select id="modalEraFilter">
+                <option value="all">All Eras</option>
+                <option value="the-first">The First</option>
+                <option value="we-young">We Young</option>
+                <option value="empathy">Empathy</option>
+                <option value="we-go-up">We Go Up</option>
+                <option value="we-boom">We Boom</option>
+                <option value="the-dream">The Dream</option>
+                <option value="reload">Reload</option>
+                <option value="resonance-pt-1">Resonance Pt. 1</option>
+                <option value="resonance-pt-2">Resonance Pt. 2</option>
+                <option value="hot-sauce">Hot Sauce</option>
+                <option value="hello-future">Hello Future</option>
+                <option value="universe">Universe</option>
+                <option value="smcu-express">SMCU Express</option>
+                <option value="glitch-mode">Glitch Mode</option>
+                <option value="beat-box">Beatbox</option>
+                <option value="candy">Candy</option>
+                <option value="smcu-palace">SMCU Palace</option>
+                <option value="best-friend-ever">Best Friend Ever</option>
+                <option value="istj">ISTJ</option>
+                <option value="golden-age">Golden Age</option>
+                <option value="dreamscape">Dreamscape</option>
+                <option value="moonlight">Moonlight</option>
+                <option value="the-culture-the-future">The Culture The Future</option>
+                <option value="go-back-to-the-future">Go Back To The Future</option>
+                <option value="beat-it-up">Beat It Up</option>
+                <option value="both-sides">Both Sides</option>
+              </select>
+            </div>
+
+            <div class="filter-modal-actions">
+              <button class="btn btn--ghost" id="modalResetFiltersBtn" type="button">Reset 🔄</button>
+              <button class="btn btn--accent" id="modalApplyFiltersBtn" type="button">Apply Filters 🖼️</button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- GRID -->
+      <section class="pc-grid" id="pcGrid" aria-live="polite"></section>
+      
+
+      <!-- EMPTY STATE -->
+      <section class="empty-state" id="emptyState" hidden>
+        <div class="empty-icon" aria-hidden="true">🐶 🐰</div>
+        <h2>No photocards found</h2>
+        <p>Try adjusting your search or filters to find what you're looking for.</p>
+        <button class="btn btn--accent" id="emptyResetBtn" type="button">
+          Reset Filters
+        </button>
+      </section>
+
+    </main>
+  </div>
+  
+  <!-- SETTINGS MODAL -->
+  <div class="modal" id="settingsModal" hidden>
+    <button
+      class="modal-backdrop"
+      id="settingsBackdrop"
+      type="button"
+      aria-label="Close settings"
+    ></button>
+
+    <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+      <div class="modal-head">
+        <h2 id="settingsTitle">⚙️ Settings</h2>
+        <button class="close-btn" id="closeSettingsBtn" type="button" aria-label="Close settings">
+          ×
+        </button>
+      </div>
+
+      <div class="settings-page">
+
+        <section class="settings-section">
+          <h3>About</h3>
+          <p>NCT JNJM Archive is a small fan-made project dedicated to organizing and collecting Jeno & Jaemin photocards across different eras 🤍</p>
+          <p>This space was created to help fans easily browse, track, and enjoy their collections — whether for wishlists or simply admiring the cards 🌸☁️</p>
+          <p>This project is not affiliated with any official sources, and is purely made for personal and fan purposes only ⭐</p>
+        </section>
+
+        <section class="settings-section">
+          <h3>Disclaimer</h3>
+          <p>All credits go to the original owners 🤍 I only arranged and formatted the images into templates to make them easier to use 🌸</p>
+          <p>Please use this archive for personal purposes only — not for commercial use 🌙</p>
+          <p>Images shown may differ slightly from actual physical items due to formatting, cropping, or zoom adjustments ☁️</p>
+        </section>
+
+        <section class="settings-section">
+          <h3>Common Terms</h3>
+          <p>Common abbreviations used across the archive</p>
+
+          <ul class="settings-list">
+            <li>POB = Pre-Order Benefit</li>
+            <li>LD = Lucky Draw</li>
+            <li>FS = Fansign</li>
+            <li>VCE = Video Call Event / Fancall</li>
+            <li>BTS = Back To School</li>
+            <li>SG = Season's Greetings</li>
+            <li>MD = Merchandise</li>
+            <li>SSM = Superstar SMTOWN</li>
+            <li>TC = Trading Card</li>
+            <li>SPC / SP = Special</li>
+            <li>Pola = Polaroid</li>
+            <li>Holo = Hologram</li>
+            <li>KMS = KMStation</li>
+            <li>YZY = Yizhiyu / Withfans</li>
+            <li>GBTTF = Go Back To The Future</li>
+            <li>BIU = Beat It Up</li>
+          </ul>
+        </section>
+
+        <section class="settings-section">
+          <h3>Theme</h3>
+          <p>
+            Choose the vibe of your little space — light mode feels soft and bright 🌸🌞
+            while dark mode feels calm and cozy 🌙✨
+          </p>
+
+          <div class="theme-options" id="themeOptions">
+            <button class="theme-option" data-theme="light" type="button">Light 🌸🌞</button>
+            <button class="theme-option" data-theme="dark" type="button">Dark 🌙✨</button>
+          </div>
+        </section>
+
+        <section class="settings-section">
+          <h3>Contact</h3>
+          <p>If you find better images, notice missing items, or need corrections/removal, feel free to reach out anytime 💌</p>
+          <p>
+            Twitter / X:
+            <a class="contact-link" href="https://x.com/i2nqr" target="_blank" rel="noreferrer">
+              @i2nqr
+            </a>
+          </p>
+        </section>
+
+      </div>
+    </section>
   </div>
 
-  <!-- MOBILE / TABLET BENEFIT PANEL -->
-  <div class="filter-panel" id="benefitPanel">
-    <div class="filter-panel-header">
-      <h3>Benefits</h3>
-      <button class="close-panel" type="button">✕</button>
-    </div>
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav" aria-label="Bottom navigation">
+    <button class="bottom-nav-item is-active" id="photocardTab" type="button">
+      <svg viewBox="0 0 24 24" class="bottom-nav-icon" aria-hidden="true">
+        <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v13A2.5 2.5 0 0 1 17.5 21h-11A2.5 2.5 0 0 1 4 18.5v-13Z"/>
+        <path d="M8 8h8M8 12h8M8 16h5"/>
+      </svg>
+      <span>Photocard</span>
+    </button>
 
-    <div class="filter-panel-body">
-      <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="all">All Benefits</button>
-      <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="album">Album</button>
-      <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="pob">Pre-Order Benefit</button>
-      <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="ld">Lucky Draw</button>
-      <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="fanmeeting">Fan Meeting</button>
-      <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="merch">Merchandise</button>
-      <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="etc">Etc</button>
-    </div>
+    <button class="bottom-nav-item" id="infoTab" type="button">
+      <svg viewBox="0 0 24 24" class="bottom-nav-icon" aria-hidden="true">
+        <circle cx="4" cy="12" r="1.8" fill="currentColor"/>
+        <circle cx="12" cy="12" r="1.8" fill="currentColor"/>
+        <circle cx="20" cy="12" r="1.8" fill="currentColor"/>
+      </svg>
+      <span>More</span>
+    </button>
+  </nav>
 
-    <div class="filter-panel-footer">
-      <button class="reset-btn" type="button">Reset</button>
-      <button class="apply-btn" type="button">Apply</button>
-    </div>
-  </div>
+  <!-- SCROLL TOP -->
+  <button class="scroll-top" id="scrollTopBtn" type="button" aria-label="Back to top">
+    ⬆️
+  </button>
 
-  <!-- MOBILE / TABLET ERA PANEL -->
-  <div class="filter-panel" id="eraPanel">
-    <div class="filter-panel-header">
-      <h3>Eras</h3>
-      <button class="close-panel" type="button">✕</button>
-    </div>
+  <!-- DATA FILES PER ERA -->
+  <script src="data/the-first.js"></script>
+  <script src="data/we-young.js"></script>
+  <script src="data/empathy.js"></script>
+  <script src="data/we-go-up.js"></script>
+  <script src="data/we-boom.js"></script>
+  <script src="data/the-dream.js"></script>
+  <script src="data/reload.js"></script>
+  <script src="data/resonance-pt-1.js"></script>
+  <script src="data/resonance-pt-2.js"></script>
+  <script src="data/hot-sauce.js"></script>
+  <script src="data/hello-future.js"></script>
+  <script src="data/universe.js"></script>
+  <script src="data/smcu-express.js"></script>
+  <script src="data/glitch-mode.js"></script>
+  <script src="data/beat-box.js"></script>
+  <script src="data/candy.js"></script>
+  <script src="data/smcu-palace.js"></script>
+  <script src="data/best-friend-ever.js"></script>
+  <script src="data/istj.js"></script>
+  <script src="data/golden-age.js"></script>
+  <script src="data/dreamscape.js"></script>
+  <script src="data/moonlight.js"></script>
+  <script src="data/the-culture-the-future.js"></script>
+  <script src="data/go-back-to-the-future.js"></script>
+  <script src="data/beat-it-up.js"></script>
+  <script src="data/both-sides.js"></script>
 
-    <div class="filter-panel-body">
-      <button class="filter-option" type="button" data-filter-type="era" data-filter-value="all">All Eras</button>
-      <button class="filter-option" type="button" data-filter-type="era" data-filter-value="gbttf">Go Back To The Future</button>
-      <button class="filter-option" type="button" data-filter-type="era" data-filter-value="biu">Beat It Up</button>
-      <button class="filter-option" type="button" data-filter-type="era" data-filter-value="bothsides">Both Sides</button>
-    </div>
-
-    <div class="filter-panel-footer">
-      <button class="reset-btn" type="button">Reset</button>
-      <button class="apply-btn" type="button">Apply</button>
-    </div>
-  </div>
-
-  <!-- MOBILE / TABLET ALL FILTERS PANEL -->
-  <div class="filter-panel" id="allFiltersPanel">
-    <div class="filter-panel-header">
-      <h3>All Filters</h3>
-      <button class="close-panel" type="button">✕</button>
-    </div>
-
-    <div class="filter-panel-body grouped">
-      <div class="filter-section">
-        <h4>Members</h4>
-        <button class="filter-option" type="button" data-filter-type="member" data-filter-value="all">NCT JNJM</button>
-        <button class="filter-option" type="button" data-filter-type="member" data-filter-value="jeno">Jeno</button>
-        <button class="filter-option" type="button" data-filter-type="member" data-filter-value="jaemin">Jaemin</button>
-        <button class="filter-option" type="button" data-filter-type="member" data-filter-value="unit">Unit</button>
-      </div>
-
-      <div class="filter-section">
-        <h4>Benefits</h4>
-        <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="all">All Benefits</button>
-        <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="album">Album</button>
-        <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="pob">Pre-Order Benefit</button>
-        <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="ld">Lucky Draw</button>
-        <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="fanmeeting">Fan Meeting</button>
-        <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="merch">Merchandise</button>
-        <button class="filter-option" type="button" data-filter-type="benefit" data-filter-value="etc">Etc</button>
-      </div>
-
-      <div class="filter-section">
-        <h4>Eras</h4>
-        <button class="filter-option" type="button" data-filter-type="era" data-filter-value="all">All Eras</button>
-        <button class="filter-option" type="button" data-filter-type="era" data-filter-value="gbttf">Go Back To The Future</button>
-        <button class="filter-option" type="button" data-filter-type="era" data-filter-value="biu">Beat It Up</button>
-        <button class="filter-option" type="button" data-filter-type="era" data-filter-value="bothsides">Both Sides</button>
-      </div>
-    </div>
-
-    <div class="filter-panel-footer">
-      <button class="reset-btn" type="button">Reset</button>
-      <button class="apply-btn" type="button">Apply</button>
-    </div>
-  </div>
-
-  <!-- MAIN CONTENT -->
-  <main class="content">
-    <div class="pc-grid-sections" id="pcGridSections"></div>
-
-    <footer class="footer">
-      <p class="footer-main">JNJM.archive</p>
-      <p class="footer-note">Curated by @jjatmosphere on x</p>
-      <p class="footer-note">Unofficial photocard archive • all rights to respective owners</p>
-    </footer>
-  </main>
-
-  <script src="data.js"></script>
+  <!-- MAIN LOGIC -->
   <script src="script.js"></script>
 </body>
 </html>
